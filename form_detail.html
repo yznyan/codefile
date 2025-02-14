@@ -129,7 +129,7 @@
 
 			function validateCaptcha() {
 				const userInput = document.getElementById('captchaInput').value;
-				if (userInput.toLocaleLowerCase === captchaText.toLocaleLowerCase) {
+				if (userInput.toLocaleLowerCase() === captchaText.toLocaleLowerCase()) {
 					window.location.assign("https://yznyan.github.io/codefile/form.pdf");
 				} else {
 					document.getElementById('captchaInput').value='';
