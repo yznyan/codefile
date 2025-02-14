@@ -57,15 +57,22 @@
     </div>
 
     <script>
-        // 生成二维码
-        new QRCode(document.getElementById("qrcode"), {
-            text: "https://yznyan.github.io/codefile/form_detail.html",
-            width: 150,
-            height: 150,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-        });
+        const qrcodeDiv = document.getElementById("qrcode");
+               new QRCode(qrcodeDiv, {
+                   text: "https://yznyan.github.io/codefile/form_detail.html",
+                   width: 150,
+                   height: 150,
+                   colorDark: "#000000",
+                   colorLight: "#ffffff",
+                   correctLevel: QRCode.CorrectLevel.H
+               });
+       
+               // 将 canvas 转换为 img 标签
+               const canvas = qrcodeDiv.querySelector('canvas');
+               const img = new Image();
+               img.src = canvas.toDataURL('image/png');
+               qrcodeDiv.innerHTML = '';
+               qrcodeDiv.appendChild(img);
     </script>
 </body>
 </html>
